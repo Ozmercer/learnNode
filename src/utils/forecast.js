@@ -9,7 +9,8 @@ const forecast = (lat, lang, callback) => {
             callback(body.error);
         } else {
             const data = body.currently;
-            callback(null, `${body.daily.data[0].summary} It is currently ${data.temperature} degrees out. There is ${(data.precipProbability * 100).toFixed(0)}% chance of rain.`);
+            console.log(data);
+            callback(null, `${body.daily.data[0].summary} It is currently ${data.temperature} degrees out. \nThere is ${(data.precipProbability * 100).toFixed(0)}% chance of rain. \nHumidity is ${data.humidity * 100}%.`);
         }
     });
 };
